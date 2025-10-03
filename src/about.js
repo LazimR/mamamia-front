@@ -1,53 +1,55 @@
 // Arquivo JavaScript para about.html
 import './style.css'
 
-// Sistema de temas do DaisyUI (mesmo do main.js)
+// Sistema de alternância de temas (Light/Dark)
 document.addEventListener('DOMContentLoaded', function() {
-  const themes = [
-    { name: 'Light', value: 'light', icon: '☀️' },
-    { name: 'Dark', value: 'dark', icon: '🌙' }
-  ]
-
-  // Criar dropdown de temas
-  const themeDropdown = document.createElement('div')
-  themeDropdown.className = 'dropdown dropdown-end'
-  themeDropdown.innerHTML = `
-    <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
-      </svg>
-    </div>
-    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-      ${themes.map(theme => `
-        <li><a class="theme-option" data-theme="${theme.value}">
-          <span class="text-lg">${theme.icon}</span>
-          ${theme.name}
-        </a></li>
-      `).join('')}
-    </ul>
-  `
-
-  // Adicionar event listeners para os temas
-  themeDropdown.addEventListener('click', function(e) {
-    if (e.target.closest('.theme-option')) {
-      const themeValue = e.target.closest('.theme-option').dataset.theme
-      document.documentElement.setAttribute('data-theme', themeValue)
-      
-      // Salvar preferência no localStorage
-      localStorage.setItem('selected-theme', themeValue)
-      
-      // Fechar dropdown
-      themeDropdown.querySelector('[tabindex]').blur()
+  const themeToggle = document.createElement('button')
+  themeToggle.className = 'btn btn-ghost btn-circle'
+  
+  // Função para atualizar o ícone baseado no tema
+  function updateThemeIcon(theme) {
+    if (theme === 'dark') {
+      // Ícone de sol (quando está no tema escuro, mostra sol para alternar para claro)
+      themeToggle.innerHTML = `
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+        </svg>
+      `
+    } else {
+      // Ícone de lua (quando está no tema claro, mostra lua para alternar para escuro)
+      themeToggle.innerHTML = `
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+      `
     }
-  })
-
+  }
+  
   // Restaurar tema salvo ou usar padrão
   const savedTheme = localStorage.getItem('selected-theme') || 'light'
   document.documentElement.setAttribute('data-theme', savedTheme)
+  
+  // Atualizar ícone inicial
+  updateThemeIcon(savedTheme)
+  
+  // Adicionar evento de clique para alternar tema
+  themeToggle.addEventListener('click', function() {
+    const html = document.documentElement
+    const currentTheme = html.getAttribute('data-theme')
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+    
+    html.setAttribute('data-theme', newTheme)
+    
+    // Atualizar ícone
+    updateThemeIcon(newTheme)
+    
+    // Salvar preferência no localStorage
+    localStorage.setItem('selected-theme', newTheme)
+  })
 
-  // Adicionar o dropdown de temas ao navbar
+  // Adicionar o botão de tema ao navbar
   const navbarEnd = document.querySelector('.navbar-end')
   if (navbarEnd) {
-    navbarEnd.insertBefore(themeDropdown, navbarEnd.firstChild)
+    navbarEnd.insertBefore(themeToggle, navbarEnd.firstChild)
   }
 })
