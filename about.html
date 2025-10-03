@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MamaMia</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="min-h-screen bg-base-300">
+        <div class="navbar bg-base-100 shadow-lg">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+                </svg>
+              </div>
+              <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <li><a href="index.html" class="text-base-content">Início</a></li>
+                <li><a href="about.html" class="text-base-content">Sobre</a></li>
+              </ul>
+            </div>
+            <a class="btn btn-ghost text-xl text-base-content">MamaMia</a>
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li><a href="index.html" class="text-base-content">Início</a></li>
+              <li><a href="about.html" class="text-base-content">Sobre</a></li>
+            </ul>
+          </div>
+          <div class="navbar-end">
+            <a class="btn btn-primary">Login</a>
+          </div>
+        </div>
+
+        <main class="container mx-auto px-4 py-8">
+          <h1 class="text-3xl font-bold text-base-content text-center">Sobre o MamaMia</h1>
+          <p class="text-base-content/70 text-center">O MamaMia é um sistema de gestão de pizzaria que permite gerenciar seu cardápio e pedidos de forma eficiente e organizada.</p>
+          <p class="text-base-content/70 text-center">Esse sistema foi desenvolvido como parte da avaliação da disciplina de Programação Web II do curso de Sistemas de Informação da UFPI.</p>
+          <div class="mt-8">
+            <h2 class="text-2xl font-bold text-base-content text-center mb-4">Desenvolvido por:</h2>
+            <div class="flex flex-col md:flex-row gap-6 items-center justify-center p-4 bg-base-100 rounded-lg shadow-lg">
+                <div class="flex flex-col gap-2 items-center text-center">
+                    <img src="https://github.com/lazimr.png" alt="Lazaro Claubert" class="w-32 h-32 rounded-full object-cover shadow-lg">
+                    <p class="text-base-content">
+                        <a href="https://github.com/lazimr" class="text-primary hover:underline">Lazaro Claubert</a>
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2 items-center text-center">
+                    <img src="https://github.com/andressacarolines.png" alt="Andressa Caroline" class="w-32 h-32 rounded-full object-cover shadow-lg">
+                    <p class="text-base-content">
+                        <a href="https://github.com/andressacarolines" class="text-primary hover:underline">Andressa Caroline</a>
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2 items-center text-center">
+                    <img src="https://github.com/rayss4lves.png" alt="Rayssa Alves" class="w-32 h-32 rounded-full object-cover shadow-lg">
+                    <p class="text-base-content">
+                        <a href="https://github.com/rayss4lves" class="text-primary hover:underline">Rayssa Alves</a>
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2 items-center text-center">
+                    <img src="https://github.com/SantWRL.png" alt="Patrick Santos" class="w-32 h-32 rounded-full object-cover shadow-lg">
+                    <p class="text-base-content">
+                        <a href="https://github.com/SantWRL" class="text-primary hover:underline">Patrick Santos</a>
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2 items-center text-center">
+                    <img src="https://github.com/raglicia.png" alt="Raglicia Sandi" class="w-32 h-32 rounded-full object-cover shadow-lg">
+                    <p class="text-base-content">
+                        <a href="https://github.com/raglicia" class="text-primary hover:underline">Raglicia Sandi</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        </main>
+      </div>
+    </div>
+    <script type="module" src="/src/about.js"></script>
+  </body>
+</html>
