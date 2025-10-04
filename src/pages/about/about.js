@@ -1,10 +1,14 @@
 // Arquivo JavaScript para about.html
-import './style.css'
+import '../../style.css'
 
-// Sistema de alternância de temas (Light/Dark)
+console.log('About page carregada com sucesso! 🎉')
+
+// Aguardar posicionamento dos elementos
 document.addEventListener('DOMContentLoaded', function() {
-  const themeToggle = document.createElement('button')
-  themeToggle.className = 'btn btn-ghost btn-circle'
+  // Pequeno atraso para elementos se posicionarem
+  setTimeout(function() {
+    const themeToggle = document.createElement('button')
+    themeToggle.className = 'btn btn-ghost btn-circle'
   
   // Função para atualizar o ícone baseado no tema
   function updateThemeIcon(theme) {
@@ -47,9 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem('selected-theme', newTheme)
   })
 
-  // Adicionar o botão de tema ao navbar
-  const navbarEnd = document.querySelector('.navbar-end')
-  if (navbarEnd) {
-    navbarEnd.insertBefore(themeToggle, navbarEnd.firstChild)
-  }
+    // Adicionar o botão de tema ao navbar
+    const navbarEnd = document.querySelector('.navbar-end')
+    if (navbarEnd) {
+      navbarEnd.insertBefore(themeToggle, navbarEnd.firstChild)
+    }
+  }, 250) // 250ms de atraso para posicionamento
 })

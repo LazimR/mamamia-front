@@ -1,5 +1,9 @@
 import { defineConfig } from 'vite'
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -9,6 +13,12 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: true
+    sourcemap: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        about: path.resolve(__dirname, 'src/pages/about/about.html'),
+      }
+    }
   }
 })
