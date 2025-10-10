@@ -15,3 +15,11 @@ O sistema tem como objetivo facilitar o gerenciamento de pedidos, clientes, card
 - 🔑 **Autenticação de usuários**: diferentes permissões para administradores, atendentes e entregadores.  
 
 ---
+
+## Instalação
+
+Instale as depêndencias
+`npm install `
+
+Agora basta iniciar o site
+`npm run dev`
